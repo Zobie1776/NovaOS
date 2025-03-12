@@ -1,0 +1,16 @@
+module NovaHybridAI
+
+function is_command(input) {
+    commands = ["open file", "delete", "run process", "shutdown", "restart", "list files", "search"]
+    return input in commands
+}
+
+function execute(command, args=null) {
+    print("⚙️ Executing system command: " + command)
+    if args != null {
+        return "Executed: " + command + " with arguments: " + args
+    }
+    return "Executed: " + command
+}
+
+export { is_command, execute }

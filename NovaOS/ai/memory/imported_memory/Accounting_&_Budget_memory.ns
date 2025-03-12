@@ -1,0 +1,23 @@
+module Accounting_Budget_Planning
+
+memory_data = {
+    "topic": "Accounting & Budget Planning",
+    "financial_analysis": {
+        "weekly_income": 960,
+        "tracked_expenses": [
+            "Rent, groceries, transportation",
+            "Discretionary spending and subscriptions"
+        ]
+    },
+    "savings_plan": {
+        "goal": "Save $7,376 for moving to Phoenix, AZ",
+        "timeline": "9-12 months by saving $150-$200 per week"
+    },
+    "next_steps": [
+        "Reduce non-essential subscriptions",
+        "Track progress towards moving fund goal",
+        "Adjust budget based on changes in income/expenses"
+    ]
+}
+
+export { memory_data }

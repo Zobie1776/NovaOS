@@ -1,0 +1,95 @@
+// Nova OS Encryption Manager (encryption.ns)
+
+// ✅ Initialize Encryption System
+function initializeEncryption() {
+    print("Initializing Nova OS Encryption Services...");
+
+    // Enable AI-Based Key Management
+    enableAIKeyManagement();
+
+    // Secure System Logs
+    secureSystemLogs();
+}
+
+// ✅ Encrypt a File or Folder
+function encryptItem(path) {
+    print("Encrypting: " + path);
+    Security.encrypt(path, "AES-256");
+}
+
+// ✅ Decrypt a File or Folder
+function decryptItem(path) {
+    print("Decrypting: " + path);
+    Security.decrypt(path);
+}
+
+// ✅ Enable Full-Disk Encryption
+function enableFullDiskEncryption() {
+    print("Activating Full-Disk Encryption...");
+    Security.enableFullDiskEncryption("AES-256");
+}
+
+// ✅ Enable AI-Optimized Key Management
+function enableAIKeyManagement() {
+    print("AI-Powered Key Management Enabled.");
+    Security.KeyManager.enableAIOptimization();
+}
+
+// ✅ Secure System Logs & Prevent Tampering
+function secureSystemLogs() {
+    print("Encrypting system logs...");
+    Security.Logs.encrypt();
+}
+
+// ✅ Generate a Secure Encryption Key
+function generateSecureKey(keyName) {
+    key = Security.generateKey("AES-256");
+    Security.KeyManager.storeKey(keyName, key);
+    print("Secure encryption key generated: " + keyName);
+}
+
+// ✅ Retrieve an Encryption Key
+function getEncryptionKey(keyName) {
+    key = Security.KeyManager.getKey(keyName);
+    if (key) {
+        print("Retrieved encryption key: " + keyName);
+    } else {
+        print("Error: Key not found.");
+    }
+}
+
+// ✅ Securely Share an Encrypted File with Digital Signature
+function shareSecureFile(filePath, recipient) {
+    print("Encrypting file for secure sharing...");
+    encryptItem(filePath);
+    Security.DigitalSignature.sign(filePath, recipient);
+    print("File signed and ready for secure transfer.");
+}
+
+// ✅ Enable End-to-End Encrypted Cloud Sync
+function enableCloudEncryption() {
+    print("Activating Encrypted Cloud Storage...");
+    CloudStorage.enableEncryption();
+}
+
+// ✅ Self-Healing Encryption (Auto-Recovery)
+function enableSelfHealingEncryption() {
+    print("Enabling AI-Based Self-Healing Encryption...");
+    Security.enableSelfHealing();
+}
+
+// ✅ Verify File Integrity
+function verifyFileIntegrity(filePath) {
+    print("Verifying file integrity...");
+    if (Security.verifyIntegrity(filePath)) {
+        print("File integrity confirmed.");
+    } else {
+        print("Warning: File may have been tampered with.");
+    }
+}
+
+// ✅ Run Encryption System Initialization
+initializeEncryption();
+enableFullDiskEncryption();
+enableSelfHealingEncryption();
+enableCloudEncryption();

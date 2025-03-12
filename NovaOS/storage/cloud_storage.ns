@@ -1,0 +1,96 @@
+// Nova OS Cloud Storage Manager (cloud_storage.ns)
+
+// ✅ Initialize Cloud Storage System
+function initializeCloudStorage() {
+    print("Initializing Nova OS Cloud Storage...");
+
+    // Load Cloud Storage UI
+    UI.load("cloud-storage");
+
+    // Enable Secure Cloud Sync
+    enableCloudEncryption();
+
+    // Monitor Storage Usage
+    monitorStorageUsage();
+}
+
+// ✅ Connect to a Cloud Storage Provider
+function connectCloud(provider, credentials) {
+    if (provider in ["NovaCloud", "GoogleDrive", "Dropbox", "OneDrive", "SFTP"]) {
+        print("Connecting to " + provider + "...");
+        CloudStorage.connect(provider, credentials);
+    } else {
+        print("Error: Unsupported cloud provider.");
+    }
+}
+
+// ✅ Upload a File to Cloud Storage
+function uploadToCloud(filePath, cloudProvider) {
+    print("Uploading " + filePath + " to " + cloudProvider + "...");
+    CloudStorage.upload(filePath, cloudProvider);
+}
+
+// ✅ Download a File from Cloud Storage
+function downloadFromCloud(cloudFilePath, localPath, cloudProvider) {
+    print("Downloading " + cloudFilePath + " from " + cloudProvider + "...");
+    CloudStorage.download(cloudFilePath, localPath, cloudProvider);
+}
+
+// ✅ Enable Secure Cloud Sync
+function enableCloudEncryption() {
+    print("Enabling end-to-end encrypted cloud sync...");
+    CloudStorage.enableEncryption();
+}
+
+// ✅ Set Up Automated Cloud Backup
+function enableAutoBackup() {
+    print("Enabling AI-powered automatic cloud backup...");
+    Backup.enableAutoCloudBackup();
+}
+
+// ✅ Selective Folder Synchronization
+function syncFolder(folderPath, cloudProvider) {
+    print("Synchronizing " + folderPath + " with " + cloudProvider + "...");
+    CloudStorage.syncFolder(folderPath, cloudProvider);
+}
+
+// ✅ List Files in Cloud Storage
+function listCloudFiles(cloudProvider) {
+    print("Fetching file list from " + cloudProvider + "...");
+    files = CloudStorage.listFiles(cloudProvider);
+    print("Cloud Files:\n" + files);
+}
+
+// ✅ Monitor Storage Usage & Optimize Cloud Space
+function monitorStorageUsage() {
+    usage = CloudStorage.getUsageStats();
+    print("Cloud Storage Usage: " + usage.used + " GB / " + usage.total + " GB");
+
+    if (usage.used > 90) {
+        print("Warning: Cloud storage nearly full. AI optimizing storage...");
+        optimizeStorageUsage();
+    }
+}
+
+// ✅ Optimize Cloud Storage Usage (Auto-Migration)
+function optimizeStorageUsage() {
+    print("Analyzing cloud storage to remove redundant or old files...");
+    CloudStorage.autoOptimize();
+}
+
+// ✅ Restore a File from Cloud Backup
+function restoreCloudBackup(filePath) {
+    print("Restoring " + filePath + " from cloud backup...");
+    CloudStorage.restore(filePath);
+}
+
+// ✅ Enable Offline Cloud File Access
+function enableOfflineAccess(filePath) {
+    print("Enabling offline access for " + filePath + "...");
+    CloudStorage.cacheFile(filePath);
+}
+
+// ✅ Run Cloud Storage Manager
+initializeCloudStorage();
+enableAutoBackup();
+enableOfflineAccess("/NovaOS/Documents");

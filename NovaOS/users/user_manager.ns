@@ -1,0 +1,120 @@
+// Nova OS User Manager (user_manager.ns)
+
+// ✅ Initialize User Management System
+function initializeUserManager() {
+    print("Initializing Nova OS User Management...");
+
+    // Enable AI-Powered Security Monitoring
+    enableAISecurityMonitoring();
+
+    // Load Existing Users
+    loadUserAccounts();
+}
+
+// ✅ Create a New User Account
+function createUser(username, role) {
+    if (!User.exists(username)) {
+        User.create(username, role);
+        print("User account created: " + username + " (Role: " + role + ")");
+    } else {
+        print("Error: User already exists.");
+    }
+}
+
+// ✅ Delete a User Account
+function deleteUser(username) {
+    if (User.exists(username)) {
+        User.delete(username);
+        print("User account deleted: " + username);
+    } else {
+        print("Error: User not found.");
+    }
+}
+
+// ✅ Modify a User's Role
+function modifyUserRole(username, newRole) {
+    if (User.exists(username)) {
+        User.setRole(username, newRole);
+        print("Updated role for " + username + " to " + newRole);
+    } else {
+        print("Error: User not found.");
+    }
+}
+
+// ✅ Assign Custom Permissions to a User
+function setUserPermissions(username, permissions) {
+    if (User.exists(username)) {
+        User.setPermissions(username, permissions);
+        print("Updated permissions for " + username);
+    } else {
+        print("Error: User not found.");
+    }
+}
+
+// ✅ List All Users in the System
+function listUsers() {
+    users = User.list();
+    print("Registered Users:\n" + users);
+}
+
+// ✅ Monitor Active User Sessions
+function monitorUserSessions() {
+    sessions = User.Session.listActive();
+    print("Active User Sessions:\n" + sessions);
+}
+
+// ✅ Force Logout a User
+function forceLogout(username) {
+    if (User.Session.isActive(username)) {
+        User.Session.end(username);
+        print("User " + username + " has been logged out.");
+    } else {
+        print("Error: User is not currently logged in.");
+    }
+}
+
+// ✅ Enable AI-Based Security Monitoring
+function enableAISecurityMonitoring() {
+    print("AI-Powered User Security Monitoring Enabled.");
+    Security.AI.enableUserBehaviorTracking();
+}
+
+// ✅ Sync User Profiles with Cloud Storage
+function enableCloudSync(username) {
+    if (User.exists(username)) {
+        print("Syncing " + username + "'s profile with NovaCloud...");
+        CloudStorage.syncUserProfile(username);
+    } else {
+        print("Error: User not found.");
+    }
+}
+
+// ✅ Enforce Biometric Authentication for Specific Users
+function enforceBiometricAuthentication(username) {
+    if (User.exists(username)) {
+        Security.Biometric.enable(username);
+        print("Biometric authentication enforced for " + username);
+    } else {
+        print("Error: User not found.");
+    }
+}
+
+// ✅ Enable Multi-Factor Authentication (MFA) for Users
+function enableUserMFA(username) {
+    if (User.exists(username)) {
+        Security.MFA.enable(username);
+        print("Multi-Factor Authentication enabled for " + username);
+    } else {
+        print("Error: User not found.");
+    }
+}
+
+// ✅ Load User Accounts from System Storage
+function loadUserAccounts() {
+    print("Loading existing user accounts...");
+    User.loadAccounts();
+}
+
+// ✅ Run User Manager Initialization
+initializeUserManager();
+monitorUserSessions();

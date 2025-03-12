@@ -1,0 +1,54 @@
+// Nova OS System Settings (system_settings.ns)
+
+import NovaGraphics
+
+// ✅ Initialize System Settings
+function initializeSystemSettings() {
+    print("Launching Nova OS System Settings...");
+
+    // Load UI Components
+    UI.load("system-settings");
+
+    // Start the System Settings UI
+    startSystemSettingsUI();
+}
+
+// ✅ Adjust Network Settings
+function adjustNetworkSettings(setting, value) {
+    Network.set(setting, value);
+    print("Network setting adjusted: " + setting + " = " + value);
+}
+
+// ✅ Adjust Power Settings
+function adjustPowerSettings(setting, value) {
+    Power.set(setting, value);
+    print("Power setting adjusted: " + setting + " = " + value);
+}
+
+// ✅ List Available Settings
+function listAvailableSettings() {
+    settings = SystemSettings.list();
+    print("Available Settings: " + settings);
+}
+
+// ✅ Start System Settings UI
+function startSystemSettingsUI() {
+    print("⚙️ Launching NovaOS System Settings...");
+
+    // Create main Settings window
+    settingsWindow = NovaGraphics.createWindow("NovaOS System Settings", 800, 600);
+
+    // Network settings panel
+    networkPanel = NovaGraphics.createPanel("top", 800, 200, "gray");
+    NovaGraphics.addToPanel(networkPanel, NovaGraphics.createLabel("🌐 Network Settings"));
+
+    // Power settings panel
+    powerPanel = NovaGraphics.createPanel("middle", 800, 200, "lightgray");
+    NovaGraphics.addToPanel(powerPanel, NovaGraphics.createLabel("🔋 Power Settings"));
+
+    // Show System Settings UI
+    NovaGraphics.showWindow(settingsWindow);
+}
+
+// ✅ Run System Settings Initialization
+initializeSystemSettings();

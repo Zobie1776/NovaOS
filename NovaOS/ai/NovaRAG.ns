@@ -1,0 +1,18 @@
+module NovaRAG
+
+import NovaMemory
+
+function retrieve(query) {
+    return NovaMemory.retrieve(query)
+}
+
+function retrieve_with_context(query) {
+    context = "Searching memory for relevant details..."
+    memory_result = NovaMemory.retrieve(query)
+    if memory_result != null {
+        return context + "\n" + memory_result
+    }
+    return "No relevant information found."
+}
+
+export { retrieve, retrieve_with_context }

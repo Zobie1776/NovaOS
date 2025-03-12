@@ -1,0 +1,23 @@
+module The_Titans_Trial_Memory
+
+memory_data = {
+    "project_name": "The Titans Trial",
+    "description": "Open-world RPG integrating fitness tracking.",
+    "gameplay_mechanics": [
+        "Real-time combat with free movement",
+        "Faction battles, dungeons, and exploration",
+        "PvP, PvE, and cooperative multiplayer"
+    ],
+    "combat_system": {
+        "mechanics": ["Dodging", "Critical hits", "Cooldowns"],
+        "multiplayer": "WebSocket-based real-time combat",
+        "AI_behavior": "Smart enemy behavior with dynamic tactics"
+    },
+    "next_steps": [
+        "Sync multiplayer combat",
+        "Improve AI combat reactions",
+        "Implement faction-based world bosses and battles"
+    ]
+}
+
+export { memory_data }

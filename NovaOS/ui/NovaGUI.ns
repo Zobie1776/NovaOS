@@ -1,0 +1,35 @@
+module NovaGUI
+
+import NovaGraphics
+
+// Initialize GUI
+function start_gui() {
+    print("🖥️ Launching NovaOS Graphical User Interface")
+
+    // Create main window
+    main_window = NovaGraphics.create_window("NovaOS Desktop", width=1280, height=720)
+
+    // Add taskbar
+    taskbar = NovaGraphics.create_panel("bottom", height=40, color="black")
+
+    // Add app launcher button
+    app_launcher = NovaGraphics.create_button("Nova Menu", position="left", action=open_app_launcher)
+
+    // Add system clock
+    system_clock = NovaGraphics.create_label("Time", position="right")
+    
+    // Add taskbar components
+    NovaGraphics.add_to_panel(taskbar, app_launcher, system_clock)
+
+    // Show GUI
+    NovaGraphics.show_window(main_window)
+}
+
+function open_app_launcher() {
+    print("📂 Opening App Launcher...")
+    app_window = NovaGraphics.create_window("Applications", width=600, height=400)
+    NovaGraphics.show_window(app_window)
+}
+
+// Execute GUI
+start_gui()

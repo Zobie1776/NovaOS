@@ -1,0 +1,103 @@
+// Nova OS Driver Management System (drivers.ns)
+
+// ✅ Initialize Driver Manager
+function initializeDrivers() {
+    print("Initializing Nova OS Drivers...");
+
+    // Detect & Install Required Drivers
+    detectHardware();
+    installRequiredDrivers();
+
+    // Optimize Performance Based on Hardware
+    optimizeDrivers();
+}
+
+// ✅ Detect Installed Hardware Components
+function detectHardware() {
+    print("Scanning for hardware components...");
+
+    if (Hardware.hasFeature("wifi")) {
+        print("Wi-Fi adapter detected.");
+    }
+    if (Hardware.hasFeature("bluetooth")) {
+        print("Bluetooth module detected.");
+    }
+    if (Hardware.hasFeature("gpu")) {
+        print("GPU detected.");
+    }
+    if (Hardware.hasFeature("audio")) {
+        print("Audio device detected.");
+    }
+    if (Hardware.hasFeature("touchscreen")) {
+        print("Touchscreen detected.");
+    }
+}
+
+// ✅ Install Required Drivers Automatically
+function installRequiredDrivers() {
+    print("Installing required drivers...");
+
+    if (Hardware.hasFeature("wifi")) {
+        installDriver("wifi-driver");
+    }
+    if (Hardware.hasFeature("bluetooth")) {
+        installDriver("bluetooth-driver");
+    }
+    if (Hardware.hasFeature("gpu")) {
+        installDriver("gpu-driver");
+    }
+    if (Hardware.hasFeature("audio")) {
+        installDriver("audio-driver");
+    }
+    if (Hardware.hasFeature("touchscreen")) {
+        installDriver("touchscreen-driver");
+    }
+}
+
+// ✅ Install a Specific Driver
+function installDriver(driverName) {
+    print("Installing driver: " + driverName);
+    DriverManager.install(driverName);
+}
+
+// ✅ Update All Installed Drivers
+function updateDrivers() {
+    print("Updating all system drivers...");
+    DriverManager.updateAll();
+}
+
+// ✅ Remove a Specific Driver
+function removeDriver(driverName) {
+    print("Removing driver: " + driverName);
+    DriverManager.remove(driverName);
+}
+
+// ✅ Optimize Driver Performance
+function optimizeDrivers() {
+    print("Optimizing hardware performance...");
+    
+    if (Hardware.hasFeature("gpu")) {
+        GPU.setPowerMode("balanced");
+    }
+    if (Hardware.hasFeature("wifi")) {
+        Network.optimizeLatency();
+    }
+    if (Hardware.hasFeature("battery")) {
+        PowerManager.optimizeBatteryUsage();
+    }
+}
+
+// ✅ Display Installed Drivers
+function listInstalledDrivers() {
+    drivers = DriverManager.getInstalledDrivers();
+    print("Installed Drivers: " + drivers);
+}
+
+// ✅ Enable or Disable a Driver
+function toggleDriver(driverName, state) {
+    if (state == "enable") {
+        DriverManager.enable(driverName);
+        print("Enabled driver: " + driverName);
+    } else if (state == "disable") {
+        DriverManager.disable(driverName);
+        print("Disabled driver: " +

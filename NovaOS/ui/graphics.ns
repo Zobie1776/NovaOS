@@ -1,0 +1,106 @@
+// NovaGraphics Engine (graphics.ns)
+
+// ✅ Initialize the Graphics Engine
+function initializeGraphics() {
+    print("Initializing NovaGraphics...");
+
+    // Check for GPU Acceleration
+    if (Hardware.hasFeature("gpu")) {
+        Graphics.enableGPUAcceleration();
+        print("GPU Acceleration Enabled.");
+    } else {
+        print("GPU not detected. Running in software mode.");
+    }
+
+    // Load default UI elements
+    loadDefaultUI();
+}
+
+// ✅ Load Default UI Elements
+function loadDefaultUI() {
+    print("Loading Nova OS UI components...");
+    UI.load("desktop");
+    UI.load("taskbar");
+    UI.load("window-manager");
+}
+
+// ✅ Create a New Window
+function createWindow(title, width, height) {
+    window = Window.create(title, width, height);
+    window.setDraggable(true);
+    window.setResizable(true);
+    window.enableShadow(true);
+    return window;
+}
+
+// ✅ Draw 2D Shapes
+function drawRectangle(x, y, width, height, color) {
+    Graphics.drawRect(x, y, width, height, color);
+}
+
+function drawCircle(x, y, radius, color) {
+    Graphics.drawCircle(x, y, radius, color);
+}
+
+// ✅ Render 3D Objects
+function render3DObject(model, x, y, z, rotation, scale, texture) {
+    if (!Hardware.hasFeature("gpu")) {
+        print("Warning: GPU acceleration is required for 3D rendering.");
+        return;
+    }
+
+    Model.load(model);
+    Model.setPosition(x, y, z);
+    Model.setRotation(rotation);
+    Model.setScale(scale);
+    Model.setTexture(texture);
+    Model.enableShadows(true);
+    Model.render();
+}
+
+// ✅ Apply Real-Time Physics to Objects
+function applyPhysics(object, mass, gravity, friction) {
+    PhysicsEngine.enable(object);
+    object.setMass(mass);
+    object.setGravity(gravity);
+    object.setFriction(friction);
+}
+
+// ✅ Real-Time UI Animations
+function animateWindow(window, animationType, duration) {
+    if (animationType == "fade-in") {
+        UI.animate(window, "opacity", 0, 1, duration);
+    } else if (animationType == "slide-in") {
+        UI.animate(window, "position", {x: -100, y: 0}, {x: 0, y: 0}, duration);
+    }
+}
+
+// ✅ Enable Touchscreen & Gesture Support
+function enableGestures() {
+    if (Hardware.hasFeature("touchscreen")) {
+        print("Enabling gesture support...");
+        Gesture.enable("swipe", "tap", "pinch", "rotate");
+    }
+}
+
+// ✅ Custom Shader Support
+function applyShader(object, shaderFile) {
+    Shader.load(shaderFile);
+    Shader.apply(object);
+}
+
+// ✅ Adaptive Graphics Optimization
+function optimizeGraphicsPerformance() {
+    stats = System.getUsageStats();
+    
+    if (stats.cpu > 90 || stats.gpu > 85) {
+        print("Lowering graphics quality for better performance...");
+        Graphics.setQuality("medium");
+    } else {
+        Graphics.setQuality("high");
+    }
+}
+
+// ✅ Run NovaGraphics Engine
+initializeGraphics();
+enableGestures();

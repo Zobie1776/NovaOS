@@ -1,0 +1,27 @@
+module NovaMemory
+
+memory_store = {}
+
+function load(memory_path) {
+    print("📂 Loading memory files from: " + memory_path)
+    files = list_files(memory_path)
+    for file in files {
+        memory_data = import memory_path + "/" + file
+        memory_store[file] = memory_data
+    }
+    print("✅ NovaMemory Loaded Successfully!")
+}
+
+function store_interaction(user_input, user_feedback) {
+    memory_store[user_input] = user_feedback
+    print("🧠 Learning from interaction: " + user_input)
+}
+
+function retrieve(query) {
+    if query in memory_store {
+        return memory_store[query]
+    }
+    return null
+}
+
+export { load, store_interaction, retrieve }

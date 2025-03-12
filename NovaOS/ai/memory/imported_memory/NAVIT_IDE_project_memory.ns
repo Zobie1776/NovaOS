@@ -1,0 +1,19 @@
+module NAVIT_IDE_Project_Memory
+
+memory_data = {
+    "project_name": "NAVIT IDE Project",
+    "description": "AI-powered IDE with real-time debugging, refactoring, and performance insights.",
+    "features": [
+        "Supports multiple programming languages: Python, Java, C++, JavaScript, Flutter",
+        "AI assistant 'Navit' for code generation, debugging, and refactoring",
+        "Natural-language programming queries",
+        "Speech-to-text coding",
+        "CI/CD automation with OTA updates"
+    ],
+    "next_steps": [
+        "Add real-time collaborative coding",
+        "Implement AI-powered auto-completion"
+    ]
+}
+
+export { memory_data }

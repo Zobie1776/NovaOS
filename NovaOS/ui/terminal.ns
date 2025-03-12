@@ -1,0 +1,126 @@
+// Nova OS Terminal System (terminal.ns)
+
+// Initialize Terminal
+function initializeTerminal() {
+    print("Initializing Nova OS Terminal...");
+
+    // Load Terminal UI
+    UI.load("terminal");
+
+    // Set Default Theme
+    applyTerminalTheme("default");
+
+    // Enable AI-Assisted Suggestions
+    enableAISuggestions();
+}
+
+// ✅ Execute a Command
+function executeCommand(cmd) {
+    if (cmd in commandAliases) {
+        cmd = commandAliases[cmd];  // Convert alias to full command
+    }
+
+    result = System.execute(cmd);
+    print(result);
+}
+
+// ✅ Command Aliases for Faster Execution
+var commandAliases = {
+    "cfo": "create-folder",
+    "cfi": "create-file",
+    "ls": "list",
+    "rm": "delete",
+    "mv": "move",
+    "cp": "copy",
+    "su": "admin-execute",
+    "install-lib": "install-library"
+};
+
+// ✅ Create a Folder
+function createFolder(name) {
+    FileSystem.createFolder(name);
+    print("Folder created: " + name);
+}
+
+// ✅ Create a File
+function createFile(name) {
+    FileSystem.createFile(name);
+    print("File created: " + name);
+}
+
+// ✅ List Files & Folders
+function listFiles(path) {
+    items = FileSystem.list(path);
+    print("Contents of " + path + ": " + items);
+}
+
+// ✅ Delete a File or Folder
+function deleteItem(name) {
+    FileSystem.delete(name);
+    print("Deleted: " + name);
+}
+
+// ✅ Move a File or Folder
+function moveItem(source, destination) {
+    FileSystem.move(source, destination);
+    print("Moved " + source + " to " + destination);
+}
+
+// ✅ Copy a File or Folder
+function copyItem(source, destination) {
+    FileSystem.copy(source, destination);
+    print("Copied " + source + " to " + destination);
+}
+
+// ✅ Run a NovaScript File
+function runNovaScript(script) {
+    NovaScriptInterpreter.execute(script);
+}
+
+// ✅ Admin Privileges Execution
+function adminExecute(cmd) {
+    if (User.isAdmin()) {
+        print("Executing as admin...");
+        System.execute(cmd);
+    } else {
+        print("Permission denied: Admin privileges required.");
+    }
+}
+
+// ✅ Install or Update a Library
+function installLibrary(libName) {
+    PackageManager.install(libName);
+    print("Library installed: " + libName);
+}
+
+// ✅ Search for a Command
+function searchCommand(query) {
+    results = CommandDatabase.search(query);
+    print("Matching Commands: " + results);
+}
+
+// ✅ Enable AI-Assisted Command Suggestions
+function enableAISuggestions() {
+    AI.CommandHelper.enable();
+    print("AI-Assisted Terminal Suggestions Enabled.");
+}
+
+// ✅ Apply a Terminal Theme
+function applyTerminalTheme(theme) {
+    Terminal.setTheme(theme);
+    print("Applied terminal theme: " + theme);
+}
+
+// ✅ Display System Status
+function displaySystemStatus() {
+    stats = System.getUsageStats();
+    print("CPU: " + stats.cpu + "%, Memory: " + stats.memory + "%, Disk: " + stats.disk + "%");
+}
+
+// ✅ Execute Background Task (Multi-Threaded)
+function runBackgroundTask(task) {
+    Thread.run(task);
+}
+
+// ✅ Run Terminal Initialization
+initializeTerminal();

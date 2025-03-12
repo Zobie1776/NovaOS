@@ -1,0 +1,101 @@
+// Nova OS Download Manager (downloads.ns)
+
+// ✅ Initialize Download Manager
+function initializeDownloadManager() {
+    print("Initializing Nova OS Download Manager...");
+
+    // Enable AI-Powered Optimization
+    enableDownloadAcceleration();
+
+    // Monitor Active Downloads
+    monitorDownloadQueue();
+}
+
+// ✅ Start a New File Download
+function downloadFile(url, savePath) {
+    print("Starting download from: " + url);
+    
+    if (Network.isConnected()) {
+        DownloadManager.create(url, savePath);
+    } else {
+        print("Error: No internet connection.");
+    }
+}
+
+// ✅ Pause an Active Download
+function pauseDownload(downloadID) {
+    print("Pausing download: " + downloadID);
+    DownloadManager.pause(downloadID);
+}
+
+// ✅ Resume a Paused Download
+function resumeDownload(downloadID) {
+    print("Resuming download: " + downloadID);
+    DownloadManager.resume(downloadID);
+}
+
+// ✅ Cancel an Ongoing Download
+function cancelDownload(downloadID) {
+    print("Canceling download: " + downloadID);
+    DownloadManager.cancel(downloadID);
+}
+
+// ✅ Monitor Active Downloads & Progress
+function monitorDownloadQueue() {
+    print("Monitoring Active Downloads...");
+    
+    activeDownloads = DownloadManager.listActive();
+    for (download in activeDownloads) {
+        print("Downloading: " + download.fileName + " | Progress: " + download.progress + "% | Speed: " + download.speed + " MB/s");
+    }
+}
+
+// ✅ Verify File Integrity After Download
+function verifyDownload(filePath, checksum) {
+    print("Verifying file integrity for " + filePath + "...");
+    
+    if (Security.verifyChecksum(filePath, checksum)) {
+        print("File integrity confirmed.");
+    } else {
+        print("Warning: File checksum mismatch! Possible corruption detected.");
+    }
+}
+
+// ✅ Enable AI-Powered Download Acceleration
+function enableDownloadAcceleration() {
+    print("AI-Powered Download Optimization Enabled.");
+    DownloadManager.enableAcceleration();
+}
+
+// ✅ Auto-Retry Failed Downloads
+function enableAutoRetry() {
+    print("Enabling auto-retry for failed downloads...");
+    DownloadManager.enableAutoRetry();
+}
+
+// ✅ Sort Downloaded Files into Appropriate Directories
+function organizeDownloads() {
+    print("Organizing downloaded files...");
+
+    downloads = DownloadManager.listCompleted();
+    for (file in downloads) {
+        fileType = File.getType(file.path);
+        
+        if (fileType == "document") {
+            File.move(file.path, "/NovaOS/Documents/");
+        } else if (fileType == "video") {
+            File.move(file.path, "/NovaOS/Videos/");
+        } else if (fileType == "audio") {
+            File.move(file.path, "/NovaOS/Music/");
+        } else {
+            File.move(file.path, "/NovaOS/Downloads/");
+        }
+        
+        print("Moved " + file.fileName + " to appropriate directory.");
+    }
+}
+
+// ✅ Run Download Manager Initialization
+initializeDownloadManager();
+enableAutoRetry();
+organizeDownloads();

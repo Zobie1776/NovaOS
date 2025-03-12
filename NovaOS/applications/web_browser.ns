@@ -1,0 +1,93 @@
+// Nova OS Web Browser (web_browser.ns)
+
+// ✅ Initialize Web Browser
+function initializeBrowser() {
+    print("Initializing Nova OS Web Browser...");
+
+    // Load Browser UI Components
+    UI.load("web-browser");
+
+    // Enable AI-Powered Search Assistance
+    enableAISearch();
+}
+
+// ✅ Open a Website
+function openURL(url) {
+    if (Network.isConnected()) {
+        print("Loading: " + url);
+        Web.load(url);
+    } else {
+        print("Error: No internet connection.");
+    }
+}
+
+// ✅ Perform a Web Search
+function searchWeb(query) {
+    openURL("https://www.google.com/search?q=" + query);
+}
+
+// ✅ Enable AI-Powered Search Assistance
+function enableAISearch() {
+    print("AI Search Assistance Enabled.");
+}
+
+// ✅ Manage Bookmarks
+function addBookmark(title, url) {
+    Browser.addBookmark(title, url);
+    print("Bookmark Added: " + title + " (" + url + ")");
+}
+
+function removeBookmark(title) {
+    Browser.removeBookmark(title);
+    print("Bookmark Removed: " + title);
+}
+
+function listBookmarks() {
+    bookmarks = Browser.listBookmarks();
+    print("Saved Bookmarks:\n" + bookmarks);
+}
+
+// ✅ Enable Private Browsing Mode
+function enablePrivateBrowsing() {
+    Web.setMode("private");
+    print("Private browsing enabled.");
+}
+
+// ✅ Enable Ad-Blocker & Script Blocker
+function enableAdBlock() {
+    Web.blockScripts();
+    print("AdBlock Enabled.");
+}
+
+// ✅ Secure Browsing with VPN
+function enableVPN() {
+    print("Enabling VPN for secure browsing...");
+    Network.enableVPN();
+}
+
+// ✅ Download Files from a Web Page
+function downloadFile(url, savePath) {
+    print("Starting download from: " + url);
+    DownloadManager.create(url, savePath);
+}
+
+// ✅ List Open Browser Tabs
+function listOpenTabs() {
+    tabs = Browser.getOpenTabs();
+    print("Open Tabs: " + tabs);
+}
+
+// ✅ Close a Browser Tab
+function closeTab(tabID) {
+    Browser.closeTab(tabID);
+    print("Closed Tab ID: " + tabID);
+}
+
+// ✅ Clear Browsing History
+function clearHistory() {
+    Browser.clearHistory();
+    print("Browsing history cleared.");
+}
+
+// ✅ Run Web Browser Initialization
+initializeBrowser();

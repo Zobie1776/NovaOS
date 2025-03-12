@@ -1,0 +1,22 @@
+module Trigonometry_Calculus_Tutoring
+
+memory_data = {
+    "topic": "Trigonometry & Calculus",
+    "concepts": {
+        "right_triangle_basics": [
+            "Hypotenuse, opposite, adjacent sides",
+            "30°-60°-90° triangle special ratios"
+        ],
+        "trigonometric_functions": [
+            "Sine (SOH) = Opposite / Hypotenuse",
+            "Cosine (CAH) = Adjacent / Hypotenuse",
+            "Tangent (TOA) = Opposite / Adjacent"
+        ]
+    },
+    "next_steps": [
+        "Practice SOH-CAH-TOA with different angles",
+        "Introduce Calculus concepts: Limits and Derivatives"
+    ]
+}
+
+export { memory_data }

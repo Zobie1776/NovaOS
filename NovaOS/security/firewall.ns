@@ -1,0 +1,87 @@
+// Nova OS Firewall Manager (firewall.ns)
+
+// ✅ Initialize Firewall System
+function initializeFirewall() {
+    print("Initializing Nova OS Firewall...");
+
+    // Enable AI-Powered Threat Detection
+    enableThreatDetection();
+
+    // Set Default Firewall Rules
+    setDefaultRules();
+}
+
+// ✅ Enable AI-Powered Threat Detection
+function enableThreatDetection() {
+    print("Enabling AI-Driven Firewall Monitoring...");
+    Security.Firewall.enableThreatDetection();
+}
+
+// ✅ Set Default Firewall Rules
+function setDefaultRules() {
+    print("Setting up default firewall rules...");
+    Security.Firewall.setDefaultRules();
+}
+
+// ✅ Block an IP Address or Domain
+function blockIP(ipOrDomain) {
+    Security.Firewall.block(ipOrDomain);
+    print("Blocked: " + ipOrDomain);
+}
+
+// ✅ Allow an IP Address or Domain
+function allowIP(ipOrDomain) {
+    Security.Firewall.allow(ipOrDomain);
+    print("Allowed: " + ipOrDomain);
+}
+
+// ✅ Monitor Network Traffic for Suspicious Activity
+function monitorNetworkTraffic() {
+    print("Monitoring Network Traffic...");
+
+    threats = Security.Firewall.scanTraffic();
+    if (threats.length > 0) {
+        print("Threats Detected: " + threats);
+        for (threat in threats) {
+            blockIP(threat.source);
+        }
+    } else {
+        print("No suspicious activity detected.");
+    }
+}
+
+// ✅ Enable Intrusion Detection & Prevention System (IDPS)
+function enableIDPS() {
+    print("Activating Intrusion Detection & Prevention System...");
+    Security.IDPS.enable();
+}
+
+// ✅ Enable Stealth Mode (Prevents Port Scanning)
+function enableStealthMode() {
+    print("Activating Stealth Mode...");
+    Security.Firewall.enableStealthMode();
+}
+
+// ✅ Set Application-Based Firewall Rules
+function setAppFirewallRules(appName, accessLevel) {
+    Security.Firewall.setAppRule(appName, accessLevel);
+    print("Set firewall rule for " + appName + " to " + accessLevel);
+}
+
+// ✅ Enable Geo-Blocking for High-Risk Regions
+function enableGeoBlocking(regions) {
+    print("Blocking network traffic from: " + regions);
+    Security.Firewall.blockRegions(regions);
+}
+
+// ✅ Display Firewall Status
+function displayFirewallStatus() {
+    status = Security.Firewall.getStatus();
+    print("Firewall Status: " + status);
+}
+
+// ✅ Run Firewall Initialization
+initializeFirewall();
+enableIDPS();
+enableStealthMode();
+monitorNetworkTraffic();

@@ -1,0 +1,138 @@
+// Nova OS Settings Manager (settings.ns)
+
+// ✅ Initialize Settings Manager
+function initializeSettings() {
+    print("Initializing Nova OS Settings...");
+
+    // Load Settings UI
+    UI.load("settings-menu");
+
+    // Enable AI Adaptive Settings
+    enableAIAdaptiveSettings();
+}
+
+// ✅ Display Settings
+function adjustDisplaySettings(brightness, resolution, refreshRate) {
+    Display.setBrightness(brightness);
+    Display.setResolution(resolution);
+    Display.setRefreshRate(refreshRate);
+    print("Updated display settings: Brightness " + brightness + "%, Resolution " + resolution + ", Refresh Rate " + refreshRate + "Hz");
+}
+
+// ✅ Sound & Audio Settings
+function configureAudioSettings(volume, outputDevice) {
+    Audio.setVolume(volume);
+    Audio.setOutputDevice(outputDevice);
+    print("Audio configured: Volume " + volume + "%, Output Device: " + outputDevice);
+}
+
+// ✅ Network Settings
+function configureNetwork(wifiEnabled, vpnEnabled, firewallStatus) {
+    if (wifiEnabled) {
+        Network.enableWiFi();
+        print("Wi-Fi Enabled.");
+    } else {
+        Network.disableWiFi();
+        print("Wi-Fi Disabled.");
+    }
+
+    if (vpnEnabled) {
+        Network.enableVPN();
+        print("VPN Activated.");
+    }
+
+    if (firewallStatus == "on") {
+        Security.enableFirewall();
+        print("Firewall Enabled.");
+    } else {
+        Security.disableFirewall();
+        print("Firewall Disabled.");
+    }
+}
+
+// ✅ Power & Battery Settings
+function setPowerMode(mode) {
+    if (mode == "performance") {
+        PowerManager.setPerformanceMode();
+        print("Power Mode: High Performance");
+    } else if (mode == "balanced") {
+        PowerManager.setBalancedMode();
+        print("Power Mode: Balanced");
+    } else if (mode == "battery-saver") {
+        PowerManager.setBatterySaverMode();
+        print("Power Mode: Battery Saver");
+    } else {
+        print("Invalid Power Mode.");
+    }
+}
+
+// ✅ User Preferences & Theme Customization
+function setUserPreferences(theme, keyboardLayout) {
+    UI.setTheme(theme);
+    Keyboard.setLayout(keyboardLayout);
+    print("Applied User Preferences: Theme " + theme + ", Keyboard Layout " + keyboardLayout);
+}
+
+// ✅ Security & Privacy Settings
+function configureSecurity(enableEncryption, biometricLogin) {
+    if (enableEncryption) {
+        Security.enableEncryption();
+        print("Full-Disk Encryption Enabled.");
+    } else {
+        Security.disableEncryption();
+        print("Encryption Disabled.");
+    }
+
+    if (biometricLogin) {
+        Security.enableBiometricLogin();
+        print("Biometric Authentication Enabled.");
+    }
+}
+
+// ✅ AI-Powered Adaptive Settings
+function enableAIAdaptiveSettings() {
+    print("AI-Powered Adaptive Settings Enabled.");
+}
+
+// ✅ Manage Multi-User Accounts
+function manageUserAccounts(action, username) {
+    if (action == "add") {
+        User.create(username);
+        print("User Account Created: " + username);
+    } else if (action == "remove") {
+        User.delete(username);
+        print("User Account Removed: " + username);
+    } else {
+        print("Invalid User Management Command.");
+    }
+}
+
+// ✅ Enable Touchscreen & Gesture Support
+function enableGestureControls(enable) {
+    if (enable) {
+        Gesture.enable("swipe", "tap", "pinch", "rotate");
+        print("Touchscreen Gesture Support Enabled.");
+    } else {
+        Gesture.disable();
+        print("Touchscreen Gestures Disabled.");
+    }
+}
+
+// ✅ Sync Settings with Cloud Storage
+function syncSettingsWithCloud(storageProvider) {
+    if (storageProvider in ["NovaCloud", "GoogleDrive", "Dropbox"]) {
+        print("Syncing settings with " + storageProvider + "...");
+        CloudStorage.syncSettings(storageProvider);
+    } else {
+        print("Error: Unsupported cloud storage provider.");
+    }
+}
+
+// ✅ Reset System Settings to Default
+function resetSettings() {
+    print("Resetting Nova OS settings to default...");
+    System.resetSettings();
+}
+
+// ✅ Run Settings Manager
+initializeSettings();

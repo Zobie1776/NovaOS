@@ -1,0 +1,24 @@
+module GPU_Optimizer_Memory
+
+memory_data = {
+    "project_name": "GPU Optimizer Project",
+    "description": "Qt-based GUI tool for optimizing AMD Radeon GPUs.",
+    "features": [
+        "FPS monitoring",
+        "Overclocking capabilities",
+        "Windows registry optimizations",
+        "Standalone Windows installer"
+    ],
+    "installation_steps": [
+        "Install Qt 6.5+ with MSVC",
+        "Use Visual Studio Build Tools for C++",
+        "Configure Qt Creator with MSVC toolchain",
+        "Compile, build, and deploy using windeployqt"
+    ],
+    "next_steps": [
+        "Enhance UI/UX",
+        "Add AI-driven optimization suggestions"
+    ]
+}
+
+export { memory_data }

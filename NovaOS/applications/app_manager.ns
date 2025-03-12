@@ -1,0 +1,72 @@
+// Nova OS App Manager (app_manager.ns)
+
+import NovaGraphics
+
+// ✅ Initialize App Manager
+function initializeAppManager() {
+    print("Launching Nova OS App Manager...");
+
+    // Load UI Components
+    UI.load("app-manager");
+
+    // Start the App Manager UI
+    startAppManagerUI();
+}
+
+// ✅ Install a New Application
+function installApp(appName) {
+    AppStore.install(appName);
+    print("Application installed: " + appName);
+}
+
+// ✅ Uninstall an Application
+function uninstallApp(appName) {
+    AppStore.uninstall(appName);
+    print("Application uninstalled: " + appName);
+}
+
+// ✅ Update an Application
+function updateApp(appName) {
+    AppStore.update(appName);
+    print("Application updated: " + appName);
+}
+
+// ✅ List Installed Applications
+function listInstalledApps() {
+    apps = AppStore.listInstalled();
+    print("Installed Applications: " + apps);
+}
+
+// ✅ Search for Applications
+function searchApps(query) {
+    results = AppStore.search(query);
+    print("Search Results: " + results);
+}
+
+// ✅ Start App Manager UI
+function startAppManagerUI() {
+    print("📦 Launching NovaOS App Manager...");
+
+    // Create main App Manager window
+    appManagerWindow = NovaGraphics.createWindow("NovaOS App Manager", 800, 600);
+
+    // Installed apps list
+    installedApps = NovaGraphics.createPanel("center", 600, "white");
+    NovaGraphics.addToPanel(installedApps, NovaGraphics.createLabel("📦 Installed Applications"));
+
+    // Uninstall button
+    uninstallButton = NovaGraphics.createButton("Uninstall", uninstallApp);
+    NovaGraphics.addToPanel(installedApps, uninstallButton);
+
+    // Show App Manager UI
+    NovaGraphics.showWindow(appManagerWindow);
+}
+
+// ✅ Uninstall App Action
+function uninstallApp() {
+    print("🗑️ Uninstalling selected application...");
+    return "✅ Application removed!";
+}
+
+// ✅ Run App Manager Initialization
+initializeAppManager();

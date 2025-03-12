@@ -1,0 +1,145 @@
+// Nova OS Document Manager (documents.ns)
+
+// ✅ Initialize Document Manager
+function initializeDocumentManager() {
+    print("Initializing Nova OS Document Manager...");
+
+    // Enable AI-Powered Document Organization
+    enableAIDocumentSorting();
+
+    // Monitor and Auto-Save Documents
+    enableAutoSave();
+}
+
+// ✅ Create a New Document
+function createDocument(fileName, content) {
+    filePath = "/NovaOS/Documents/" + fileName;
+    File.write(filePath, content);
+    print("Document created: " + filePath);
+}
+
+// ✅ Open a Document for Reading
+function openDocument(filePath) {
+    if (File.exists(filePath)) {
+        content = File.read(filePath);
+        print("Opening Document: " + filePath);
+        print(content);
+    } else {
+        print("Error: Document not found.");
+    }
+}
+
+// ✅ Edit an Existing Document
+function editDocument(filePath, newContent) {
+    if (File.exists(filePath)) {
+        File.write(filePath, newContent);
+        print("Document updated: " + filePath);
+    } else {
+        print("Error: Document not found.");
+    }
+}
+
+// ✅ Delete a Document
+function deleteDocument(filePath) {
+    if (File.exists(filePath)) {
+        File.delete(filePath);
+        print("Deleted document: " + filePath);
+    } else {
+        print("Error: Document not found.");
+    }
+}
+
+// ✅ List All Documents
+function listDocuments() {
+    documents = File.list("/NovaOS/Documents/");
+    print("Documents:\n" + documents);
+}
+
+// ✅ Enable AI-Powered Document Sorting
+function enableAIDocumentSorting() {
+    print("AI-Powered Document Sorting Enabled.");
+    DocumentManager.enableAutoCategorization();
+}
+
+// ✅ Automatically Organize Documents into Folders
+function organizeDocuments() {
+    print("Organizing documents...");
+
+    docs = File.list("/NovaOS/Documents/");
+    for (doc in docs) {
+        docType = File.getType(doc);
+
+        if (docType == "text") {
+            File.move(doc, "/NovaOS/Documents/Text/");
+        } else if (docType == "pdf") {
+            File.move(doc, "/NovaOS/Documents/PDFs/");
+        } else if (docType == "markdown") {
+            File.move(doc, "/NovaOS/Documents/Markdown/");
+        } else {
+            File.move(doc, "/NovaOS/Documents/Other/");
+        }
+        
+        print("Moved " + doc + " to appropriate directory.");
+    }
+}
+
+// ✅ Enable Auto-Save for Documents
+function enableAutoSave() {
+    print("Auto-Save Enabled.");
+    DocumentManager.enableAutoSave();
+}
+
+// ✅ Search for a Document by Name
+function searchDocument(query) {
+    print("Searching for documents containing: " + query);
+    results = File.search("/NovaOS/Documents/", query);
+    print("Search Results:\n" + results);
+}
+
+// ✅ AI-Powered Document Summarization
+function summarizeDocument(filePath) {
+    if (File.exists(filePath)) {
+        print("Generating AI-powered summary for " + filePath + "...");
+        summary = AI.DocumentAnalyzer.summarize(filePath);
+        print("Summary:\n" + summary);
+    } else {
+        print("Error: Document not found.");
+    }
+}
+
+// ✅ Encrypt a Document
+function encryptDocument(filePath) {
+    if (File.exists(filePath)) {
+        print("Encrypting document: " + filePath);
+        Security.encrypt(filePath, "AES-256");
+    } else {
+        print("Error: Document not found.");
+    }
+}
+
+// ✅ Decrypt a Document
+function decryptDocument(filePath) {
+    if (File.exists(filePath)) {
+        print("Decrypting document: " + filePath);
+        Security.decrypt(filePath);
+    } else {
+        print("Error: Document not found.");
+    }
+}
+
+// ✅ Sync Documents with Cloud Storage
+function syncDocumentsWithCloud() {
+    print("Syncing documents with NovaCloud...");
+    CloudStorage.syncFolder("/NovaOS/Documents/");
+}
+
+// ✅ Restore a Deleted Document from Backup
+function restoreDocument(filePath) {
+    print("Restoring document from backup: " + filePath);
+    Backup.restore(filePath);
+}
+
+// ✅ Run Document Manager Initialization
+initializeDocumentManager();
+organizeDocuments();
+syncDocumentsWithCloud();

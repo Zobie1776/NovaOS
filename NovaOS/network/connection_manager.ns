@@ -1,0 +1,165 @@
+// Nova OS Connection Manager (connection_manager.ns)
+
+// ✅ Initialize Network Manager
+function initializeConnectionManager() {
+    print("Initializing Nova OS Network Services...");
+
+    // Enable AI-Based Network Optimization
+    enableNetworkOptimization();
+
+    // Monitor Network Health
+    monitorNetworkHealth();
+
+    // Secure Connections with Firewall & DNS
+    enableSecureNetworkSettings();
+}
+
+// ✅ Connect to a Network (Wi-Fi, Ethernet, or Mobile)
+function connectToNetwork(networkType, networkName, password) {
+    if (networkType == "wifi") {
+        Network.connectWiFi(networkName, password);
+        print("Connected to Wi-Fi: " + networkName);
+    } else if (networkType == "ethernet") {
+        Network.connectEthernet();
+        print("Ethernet connection established.");
+    } else if (networkType == "mobile") {
+        Network.enableMobileData();
+        print("Mobile data enabled.");
+    } else {
+        print("Error: Unsupported network type.");
+    }
+}
+
+// ✅ Disconnect from a Network
+function disconnectNetwork(networkType) {
+    if (networkType == "wifi") {
+        Network.disconnectWiFi();
+        print("Disconnected from Wi-Fi.");
+    } else if (networkType == "ethernet") {
+        Network.disconnectEthernet();
+        print("Ethernet connection disabled.");
+    } else if (networkType == "mobile") {
+        Network.disableMobileData();
+        print("Mobile data disabled.");
+    } else {
+        print("Error: Unsupported network type.");
+    }
+}
+
+// ✅ AI-Based Network Optimization
+function enableNetworkOptimization() {
+    print("AI-Optimized Network Performance Enabled.");
+    Network.optimizePerformance();
+}
+
+// ✅ Monitor Network Health & Detect Issues
+function monitorNetworkHealth() {
+    print("Monitoring Network Health...");
+
+    stats = Network.getConnectionStats();
+    print("Network Status: " + stats.status + ", Speed: " + stats.speed + " Mbps, Latency: " + stats.latency + " ms");
+
+    if (stats.latency > 100) {
+        print("High Latency Detected! AI Optimizing Network...");
+        Network.reduceLatency();
+    }
+
+    if (!stats.isStable) {
+        print("Unstable Network Detected! Running Troubleshooting...");
+        troubleshootNetworkIssues();
+    }
+}
+
+// ✅ Troubleshoot Network Issues
+function troubleshootNetworkIssues() {
+    print("Diagnosing Network Problems...");
+
+    issue = Network.diagnose();
+    if (issue == "weak_signal") {
+        print("AI Suggestion: Move closer to the router or reduce interference.");
+    } else if (issue == "high_latency") {
+        print("AI Suggestion: Switch to a different Wi-Fi channel or use Ethernet.");
+    } else if (issue == "no_connection") {
+        print("AI Suggestion: Restart the router or reconnect to the network.");
+    } else {
+        print("No major network issues detected.");
+    }
+}
+
+// ✅ Enable Firewall & Secure DNS
+function enableSecureNetworkSettings() {
+    print("Enabling Firewall and Secure DNS...");
+    Security.Firewall.enable();
+    Network.setDNS("1.1.1.1");
+}
+
+// ✅ Monitor Bandwidth Usage & Detect Anomalies
+function monitorBandwidthUsage() {
+    usage = Network.getBandwidthUsage();
+    print("Current Bandwidth Usage: " + usage.used + " MB/s");
+
+    if (usage.unusualActivity) {
+        print("Warning: Unusual network activity detected! AI Analyzing...");
+        Security.Firewall.block(usage.suspiciousSource);
+    }
+}
+
+// ✅ Prioritize Network Traffic for Applications
+function prioritizeNetworkTraffic(appName, priorityLevel) {
+    print("Prioritizing network traffic for " + appName + "...");
+    Network.setBandwidthPriority(appName, priorityLevel);
+}
+
+// ✅ Enable Peer-to-Peer & Decentralized Networking
+function enableP2PNetworking() {
+    print("Activating Peer-to-Peer and Decentralized Networking...");
+    Network.enableP2P();
+}
+
+// ✅ Enable AI-Powered Automatic Network Switching
+function enableAutoNetworkSwitching() {
+    print("Enabling AI-Powered Automatic Network Switching...");
+    Network.enableAutoSwitching();
+}
+
+// ✅ Manage VPN Connections
+function connectVPN(serverLocation, protocol) {
+    print("Connecting to VPN in " + serverLocation + " using " + protocol + "...");
+
+    if (protocol == "OpenVPN" || protocol == "WireGuard" || protocol == "L2TP") {
+        VPN.connect(serverLocation, protocol);
+        print("Connected to VPN: " + serverLocation);
+    } else {
+        print("Error: Unsupported VPN protocol.");
+    }
+}
+
+function disconnectVPN() {
+    VPN.disconnect();
+    print("Disconnected from VPN.");
+}
+
+// ✅ Monitor VPN Connection Health
+function monitorVPNStatus() {
+    print("Monitoring VPN Connection Health...");
+
+    status = VPN.getStatus();
+    if (!status.isConnected) {
+        print("Warning: VPN Disconnected! Enabling automatic reconnect...");
+        connectVPN(status.lastServer, status.lastProtocol);
+    }
+}
+
+// ✅ Enable Secure Browsing & Traffic Encryption
+function enableSecureBrowsing() {
+    print("Activating Secure Browsing and Encrypted Traffic...");
+    VPN.enableEncryption();
+}
+
+// ✅ Run Connection Manager Initialization
+initializeConnectionManager();
+enableAutoNetworkSwitching();
+enableSecureBrowsing();
+enableP2PNetworking();
+monitorBandwidthUsage();
+monitorVPNStatus();

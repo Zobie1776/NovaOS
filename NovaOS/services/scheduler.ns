@@ -1,0 +1,88 @@
+// Nova OS Task Scheduler (scheduler.ns)
+
+// ✅ Initialize Scheduler
+function initializeScheduler() {
+    print("Initializing Nova OS Task Scheduler...");
+
+    // Enable AI-Based Scheduling
+    enableAIScheduling();
+
+    // Load Existing Tasks
+    loadScheduledTasks();
+}
+
+// ✅ Schedule a New Task
+function scheduleTask(taskName, executionTime, recurrence) {
+    print("Scheduling task: " + taskName + " at " + executionTime + " with recurrence: " + recurrence);
+    Scheduler.add(taskName, executionTime, recurrence);
+}
+
+// ✅ Cancel a Scheduled Task
+function cancelTask(taskName) {
+    print("Cancelling task: " + taskName);
+    Scheduler.remove(taskName);
+}
+
+// ✅ List Scheduled Tasks
+function listScheduledTasks() {
+    tasks = Scheduler.list();
+    print("Scheduled Tasks:\n" + tasks);
+}
+
+// ✅ Run a Task Immediately
+function runTaskNow(taskName) {
+    print("Executing task: " + taskName);
+    Scheduler.executeNow(taskName);
+}
+
+// ✅ Enable AI-Based Task Scheduling
+function enableAIScheduling() {
+    print("AI-Based Task Optimization Enabled.");
+    Scheduler.enableAIOptimization();
+}
+
+// ✅ Load Scheduled Tasks from System Memory
+function loadScheduledTasks() {
+    print("Loading existing scheduled tasks...");
+    scheduledTasks = Scheduler.getStoredTasks();
+}
+
+// ✅ Automate System Maintenance Tasks
+function scheduleSystemMaintenance() {
+    print("Scheduling automatic system maintenance...");
+    
+    scheduleTask("clean_disk", "03:00", "daily");
+    scheduleTask("update_check", "02:30", "daily");
+    scheduleTask("security_scan", "04:00", "weekly");
+}
+
+// ✅ Detect Failed Tasks and Reschedule
+function detectFailedTasks() {
+    print("Checking for failed tasks...");
+
+    failedTasks = Scheduler.getFailedTasks();
+    if (failedTasks.length > 0) {
+        print("Rescheduling failed tasks: " + failedTasks);
+        for (task in failedTasks) {
+            scheduleTask(task.name, "next_available_time", task.recurrence);
+        }
+    } else {
+        print("No failed tasks detected.");
+    }
+}
+
+// ✅ Monitor Active Tasks & Resource Usage
+function monitorTasks() {
+    print("Monitoring running scheduled tasks...");
+
+    activeTasks = Scheduler.getRunningTasks();
+    for (task in activeTasks) {
+        print("Running: " + task.name + " | CPU: " + task.cpuUsage + "% | Memory: " + task.memoryUsage + "MB");
+    }
+}
+
+// ✅ Run Scheduler Initialization
+initializeScheduler();
+scheduleSystemMaintenance();
+monitorTasks();
+detectFailedTasks();

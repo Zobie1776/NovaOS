@@ -1,0 +1,77 @@
+// ✅ NovaScript Test Suite
+print("🔹 Welcome to NovaScript Testing!")
+
+// ✅ 1. Variable Declarations & Data Types
+let number = 42;
+let text = "Hello, NovaScript!";
+let decimal = 3.14;
+let state = true;
+let list = [1, 2, 3, 4];
+let obj = {name: "Developer", age: 25};
+
+print("📝 Number:", number);
+print("📝 Text:", text);
+print("📝 Decimal:", decimal);
+print("📝 Boolean:", state);
+print("📝 List:", list);
+print("📝 Object:", obj);
+
+// ✅ 2. User Input Test
+let username = input("👤 Enter your name: ");
+print("Hello, " + username + "!");
+
+// ✅ 3. Math Operations
+let sum = 10 + 5;
+let product = 10 * 5;
+let division = 10 / 2;
+let power = 2 ^ 3;
+print("➕ Sum:", sum);
+print("✖ Product:", product);
+print("➗ Division:", division);
+print("🔢 Power:", power);
+
+// ✅ 4. Conditional Statements
+if (sum > 10) {
+    print("✅ Sum is greater than 10.");
+} else {
+    print("❌ Sum is 10 or less.");
+}
+
+// ✅ 5. Loops
+print("🔄 Loop Test (1 to 5):");
+for (let i = 1; i <= 5; i++) {
+    print("Iteration:", i);
+}
+
+// ✅ 6. Functions & Return Values
+function greet(user) {
+    return "Hello, " + user + "!";
+}
+print(greet(username));
+
+// ✅ 7. File Handling
+let file = open("testfile.txt", "w");
+file.write("This is a test file in NovaScript.");
+file.close();
+
+let readFile = open("testfile.txt", "r");
+let content = readFile.read();
+print("📄 File Content:", content);
+readFile.close();
+
+// ✅ 8. NovaOS System Commands
+print("🖥 System Info:");
+sys-info;
+
+print("🌐 Network Status:");
+net-status;
+
+// ✅ 9. AI / Advanced Features (if supported)
+if (ai.is_available()) {
+    print("🤖 AI Module Active. Running Sentiment Analysis...");
+    let sentiment = ai.analyze("NovaScript is amazing!");
+    print("🧠 Sentiment Score:", sentiment);
+}
+
+// ✅ 10. Final Test Output
+print("✅ NovaScript Test Completed!");

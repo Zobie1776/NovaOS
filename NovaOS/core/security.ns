@@ -1,0 +1,107 @@
+// Nova OS Security System (security.ns)
+
+// ✅ Initialize Security System
+function initializeSecurity() {
+    print("Initializing Nova OS Security...");
+
+    // Enable Core Security Features
+    enableThreatDetection();
+    enableFirewall();
+    enableEncryption();
+}
+
+// ✅ Enable AI-Powered Threat Detection
+function enableThreatDetection() {
+    print("Enabling AI-driven threat detection...");
+    Security.ThreatMonitor.enable();
+}
+
+// ✅ Run a System Security Scan
+function runSecurityScan() {
+    print("Running full system security scan...");
+    scanResults = Security.scanSystem();
+
+    if (scanResults.hasThreats()) {
+        print("Warning: Security threats detected!");
+        quarantineThreats();
+    } else {
+        print("System is secure.");
+    }
+}
+
+// ✅ Quarantine Threats
+function quarantineThreats() {
+    print("Isolating malicious files...");
+    Security.Quarantine.isolate();
+}
+
+// ✅ Enable Firewall for Network Protection
+function enableFirewall() {
+    print("Activating AI-driven firewall...");
+    Security.enableFirewall();
+}
+
+// ✅ Block a Specific IP or Website
+function blockNetworkThreat(ipOrDomain) {
+    Security.Firewall.block(ipOrDomain);
+    print("Blocked: " + ipOrDomain);
+}
+
+// ✅ Enable File & Disk Encryption
+function enableEncryption() {
+    print("Activating AES-256 encryption...");
+    Security.enableFullDiskEncryption();
+}
+
+// ✅ Encrypt a Specific File or Folder
+function encryptFile(path) {
+    Security.encrypt(path);
+    print("File encrypted: " + path);
+}
+
+// ✅ Decrypt a File or Folder
+function decryptFile(path) {
+    Security.decrypt(path);
+    print("File decrypted: " + path);
+}
+
+// ✅ Enable User Authentication & Access Control
+function enableAuthentication() {
+    print("Enabling biometric authentication and access control...");
+    Security.enableBiometricLogin();
+    Security.setAccessControl("strict");
+}
+
+// ✅ Manage User Permissions
+function setUserPermissions(user, permissionLevel) {
+    Security.setUserPermissions(user, permissionLevel);
+    print("Updated permissions for " + user + ": " + permissionLevel);
+}
+
+// ✅ Monitor for Intrusions & Unauthorized Access
+function monitorIntrusions() {
+    print("Monitoring system for unauthorized access...");
+
+    if (Security.IntrusionDetector.detect()) {
+        print("Intrusion detected! Blocking unauthorized access...");
+        Security.IntrusionDetector.blockIntruder();
+    }
+}
+
+// ✅ AI-Driven Security Learning & System Hardening
+function enableAISecurityLearning() {
+    print("Enabling AI-driven security learning...");
+    Security.AILearning.enable();
+}
+
+// ✅ Secure System Logs & Monitor Activity
+function secureLogs() {
+    print("Encrypting and securing system logs...");
+    Security.Logs.encryptLogs();
+}
+
+// ✅ Run Security System
+initializeSecurity();
+monitorIntrusions();
+enableAISecurityLearning();
+secureLogs();

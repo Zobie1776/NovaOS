@@ -1,0 +1,101 @@
+// Nova OS Update Manager (update_manager.ns)
+
+// ✅ Initialize Update Manager
+function initializeUpdateManager() {
+    print("Initializing Nova OS Update System...");
+
+    // Enable AI-Based Update Scheduling
+    enableAIUpdateScheduling();
+
+    // Check for Pending Updates
+    checkForUpdates();
+}
+
+// ✅ Check for System Updates
+function checkForUpdates() {
+    print("Checking for available Nova OS updates...");
+
+    updates = System.UpdateManager.check();
+    if (updates.hasPending()) {
+        print("Updates Available: " + updates.list);
+        promptUserToUpdate();
+    } else {
+        print("System is up to date.");
+    }
+}
+
+// ✅ Install System Updates
+function installUpdates() {
+    print("Installing latest Nova OS updates...");
+    System.UpdateManager.install();
+    print("Update installation complete. System reboot may be required.");
+}
+
+// ✅ Enable AI-Based Update Scheduling
+function enableAIUpdateScheduling() {
+    print("AI-Powered Update Scheduling Enabled.");
+}
+
+// ✅ Rollback to a Previous System Version
+function rollbackSystem(version) {
+    print("Rolling back to version: " + version);
+    System.UpdateManager.rollback(version);
+    print("Rollback complete. Reboot required.");
+}
+
+// ✅ Manage Security Patches
+function installSecurityPatches() {
+    print("Checking for security patches...");
+    patches = Security.UpdateManager.check();
+    if (patches.hasPending()) {
+        Security.UpdateManager.install();
+        print("Security patches applied successfully.");
+    } else {
+        print("All security updates are up to date.");
+    }
+}
+
+// ✅ Update Installed Applications
+function updateApplications() {
+    print("Updating installed applications...");
+    AppStore.updateAll();
+    print("All applications are up to date.");
+}
+
+// ✅ Update System Libraries & NovaScript
+function updateLibraries() {
+    print("Updating NovaScript and system libraries...");
+    PackageManager.updateAll();
+    print("All libraries updated successfully.");
+}
+
+// ✅ Enable Offline & Incremental Updates
+function enableIncrementalUpdates() {
+    print("Enabling incremental (delta) update support...");
+    System.UpdateManager.enableDeltaUpdates();
+}
+
+// ✅ Schedule Automatic Update Checks
+function scheduleUpdateChecks() {
+    print("Scheduling automatic update checks...");
+    Scheduler.schedule("02:00", function() {
+        checkForUpdates();
+        installSecurityPatches();
+    });
+}
+
+// ✅ Prompt User for Update Installation
+function promptUserToUpdate() {
+    UI.prompt("Updates available. Would you like to install now?", function(response) {
+        if (response == "yes") {
+            installUpdates();
+        } else {
+            print("Update postponed.");
+        }
+    });
+}
+
+// ✅ Run Update Manager Initialization
+initializeUpdateManager();
+scheduleUpdateChecks();
+enableIncrementalUpdates();

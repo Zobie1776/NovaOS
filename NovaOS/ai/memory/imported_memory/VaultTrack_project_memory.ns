@@ -1,0 +1,20 @@
+module VaultTrack_Project_Memory
+
+memory_data = {
+    "project_name": "VaultTrack Project",
+    "description": "AI & Blockchain-powered asset management system.",
+    "features": [
+        "Personal & Enterprise versions",
+        "NFT-based asset verification",
+        "Smart contract deployment",
+        "AI anomaly detection for security",
+        "Multi-chain support (Ethereum, Solana, Polygon)",
+        "Investor portal with real-time insights"
+    ],
+    "next_steps": [
+        "Deploy system on AWS or Google Cloud",
+        "Technical documentation for developers and investors"
+    ]
+}
+
+export { memory_data }

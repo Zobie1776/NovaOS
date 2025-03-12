@@ -1,0 +1,142 @@
+// Nova OS File Explorer (file_explorer.ns)
+
+import NovaGraphics
+
+// ✅ Initialize File Explorer
+function initializeFileExplorer() {
+    print("Launching Nova OS File Explorer...");
+
+    // Load UI Components
+    UI.load("file-explorer");
+
+    // Set Default View Mode
+    setViewMode("grid");
+
+    // Enable Gesture Support if Touchscreen Available
+    if (Hardware.hasFeature("touchscreen")) {
+        enableGestureSupport();
+    }
+
+    // Start the File Explorer UI
+    startFileExplorerUI();
+}
+
+// ✅ Create a New Folder
+function createFolder(path, folderName) {
+    FileSystem.createFolder(path + "/" + folderName);
+    print("Folder created: " + folderName);
+}
+
+// ✅ Create a New File
+function createFile(path, fileName) {
+    FileSystem.createFile(path + "/" + fileName);
+    print("File created: " + fileName);
+}
+
+// ✅ Delete a File or Folder
+function deleteItem(path) {
+    FileSystem.delete(path);
+    print("Deleted: " + path);
+}
+
+// ✅ Move a File or Folder
+function moveItem(sourcePath, destinationPath) {
+    FileSystem.move(sourcePath, destinationPath);
+    print("Moved: " + sourcePath + " to " + destinationPath);
+}
+
+// ✅ Copy a File or Folder
+function copyItem(sourcePath, destinationPath) {
+    FileSystem.copy(sourcePath, destinationPath);
+    print("Copied: " + sourcePath + " to " + destinationPath);
+}
+
+// ✅ Rename a File or Folder
+function renameItem(path, newName) {
+    FileSystem.rename(path, newName);
+    print("Renamed: " + path + " to " + newName);
+}
+
+// ✅ Search for Files & Folders
+function searchFiles(query) {
+    results = FileSystem.search(query);
+    print("Search Results: " + results);
+}
+
+// ✅ Sort Files by Criteria (name, date, size, type)
+function sortFiles(directory, criteria) {
+    sortedList = FileSystem.sort(directory, criteria);
+    print("Sorted Files: " + sortedList);
+}
+
+// ✅ Set File Explorer View Mode (grid or list)
+function setViewMode(mode) {
+    if (mode == "grid" || mode == "list") {
+        UI.setViewMode("file-explorer", mode);
+        print("File Explorer view set to: " + mode);
+    } else {
+        print("Invalid view mode.");
+    }
+}
+
+// ✅ Open a File or Folder
+function openItem(path) {
+    FileSystem.open(path);
+    print("Opening: " + path);
+}
+
+// ✅ Enable Touch & Gesture Support for File Explorer
+function enableGestureSupport() {
+    print("Enabling gesture support for File Explorer...");
+    Gesture.enable("swipe", "tap", "long-press", "drag");
+}
+
+// ✅ Integrate Cloud Storage Syncing
+function syncWithCloud(storageProvider) {
+    if (storageProvider == "NovaCloud" || storageProvider == "GoogleDrive" || storageProvider == "Dropbox") {
+        print("Syncing with " + storageProvider + "...");
+        CloudStorage.sync(storageProvider);
+    } else {
+        print("Error: Unsupported cloud storage provider.");
+    }
+}
+
+// ✅ Encrypt a File
+function encryptFile(path) {
+    Security.encrypt(path);
+    print("File encrypted: " + path);
+}
+
+// ✅ Decrypt a File
+function decryptFile(path) {
+    Security.decrypt(path);
+    print("File decrypted: " + path);
+}
+
+// ✅ Start File Explorer UI
+function startFileExplorerUI() {
+    print("📂 Launching NovaOS File Explorer...");
+
+    // Create main File Explorer window
+    fileExplorerWindow = NovaGraphics.createWindow("NovaOS File Explorer", 800, 600);
+
+    // File list panel
+    fileList = NovaGraphics.createPanel("center", 600, "white");
+    NovaGraphics.addToPanel(fileList, NovaGraphics.createLabel("📁 Files & Folders"));
+
+    // Open file button
+    openButton = NovaGraphics.createButton("Open", openFile);
+    NovaGraphics.addToPanel(fileList, openButton);
+
+    // Show File Explorer UI
+    NovaGraphics.showWindow(fileExplorerWindow);
+}
+
+// ✅ Open File Action
+function openFile() {
+    print("📂 Opening selected file...");
+    return "✅ File opened!";
+}
+
+// ✅ Run File Explorer Initialization
+initializeFileExplorer();

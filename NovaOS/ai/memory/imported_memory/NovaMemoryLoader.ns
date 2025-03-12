@@ -1,0 +1,31 @@
+module NovaMemoryLoader
+
+import NovaMemory
+
+functions load_memory_files() {
+    memory_path = "/NovaOS/ai/memory/imported_memory/"
+    files = [
+        "GPU_optimizer_Memory.ns",
+        "The_Titans_Trial_Memory.ns",
+        "VaultTrack_project_Memory.ns",
+        "Trig_&_Cal_memory.ns",
+        "Accounting_&_Budget_memory.ns",
+        "NAVIT_IDE_project_Memory.ns"
+    ]
+
+    for file in files {
+        file_path = "/NovaOS/ai/memory/imported_memory/" + file
+        if file_exists(file_path) {
+            memory_data = import file_path
+            NovaMemory.store(file, memory_data)
+            print("✅ Loaded memory: " + file)
+        } else {
+            print("⚠ Warning: " + file + " not found!")
+        }
+    }
+    
+    print("✅ All available memory files have been loaded into Nova AI!")
+}
+
+// Execute on startup
+load_memory_files()

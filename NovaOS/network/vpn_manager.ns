@@ -1,0 +1,84 @@
+// Nova OS VPN Manager (vpn_manager.ns)
+
+// ✅ Initialize VPN Manager
+function initializeVPNManager() {
+    print("Initializing Nova OS VPN Manager...");
+
+    // Load UI Components
+    UI.load("vpn-manager");
+
+    // Enable AI-Optimized VPN Selection
+    enableAIVPNSelection();
+}
+
+// ✅ Connect to a VPN Server
+function connectVPN(serverLocation, protocol) {
+    print("Connecting to VPN in " + serverLocation + " using " + protocol + "...");
+
+    if (protocol == "OpenVPN" || protocol == "WireGuard" || protocol == "L2TP") {
+        VPN.connect(serverLocation, protocol);
+        print("Connected to VPN: " + serverLocation);
+    } else {
+        print("Error: Unsupported VPN protocol.");
+    }
+}
+
+// ✅ Disconnect from VPN
+function disconnectVPN() {
+    VPN.disconnect();
+    print("Disconnected from VPN.");
+}
+
+// ✅ Enable AI-Optimized VPN Selection
+function enableAIVPNSelection() {
+    print("AI-Optimized VPN Selection Enabled.");
+}
+
+// ✅ Activate Kill Switch for VPN Protection
+function enableKillSwitch() {
+    print("Enabling VPN Kill Switch...");
+    VPN.enableKillSwitch();
+}
+
+// ✅ Enable Multi-Hop VPN Routing (Double VPN)
+function enableMultiHopVPN(primaryLocation, secondaryLocation) {
+    print("Setting up Multi-Hop VPN from " + primaryLocation + " to " + secondaryLocation + "...");
+    VPN.multiHop(primaryLocation, secondaryLocation);
+}
+
+// ✅ Monitor VPN Connection Health
+function monitorVPNStatus() {
+    print("Monitoring VPN Connection Health...");
+
+    status = VPN.getStatus();
+    if (!status.isConnected) {
+        print("Warning: VPN Disconnected! Enabling automatic reconnect...");
+        connectVPN(status.lastServer, status.lastProtocol);
+    }
+}
+
+// ✅ Secure Internet Traffic with Full Encryption
+function enableFullEncryption() {
+    print("Enabling Full VPN Traffic Encryption...");
+    VPN.enableEncryption();
+}
+
+// ✅ Test VPN Speed
+function testVPNPerformance() {
+    print("Testing VPN connection speed...");
+    speed = VPN.getSpeed();
+    print("VPN Speed: " + speed.download + " Mbps (Download) | " + speed.upload + " Mbps (Upload)");
+}
+
+// ✅ Automatically Switch VPN Server if Latency is High
+function enableAdaptiveVPNSwitching() {
+    print("Enabling Adaptive VPN Switching...");
+    VPN.enableAutoSwitching();
+}
+
+// ✅ Run VPN Manager Initialization
+initializeVPNManager();
+enableKillSwitch();
+monitorVPNStatus();
+enableFullEncryption();
+enableAdaptiveVPNSwitching();

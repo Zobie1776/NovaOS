@@ -1,0 +1,97 @@
+// Nova OS UI Manager (ui.ns)
+
+// ✅ Initialize UI Components
+function initializeUI() {
+    print("Initializing Nova OS UI...");
+
+    // Load Core UI Elements
+    UI.load("desktop");
+    UI.load("taskbar");
+    UI.load("window-manager");
+
+    // Check for Touchscreen Support
+    if (Hardware.hasFeature("touchscreen")) {
+        enableGestureSupport();
+    }
+
+    // Apply Default Theme
+    applyTheme("default");
+}
+
+// ✅ Create a New Window
+function createWindow(title, width, height, resizable, draggable) {
+    window = Window.create(title, width, height);
+    
+    if (resizable) {
+        window.setResizable(true);
+    }
+
+    if (draggable) {
+        window.setDraggable(true);
+    }
+
+    window.enableShadow(true);
+    window.show();
+    return window;
+}
+
+// ✅ Real-Time UI Animations
+function animateWindow(window, animationType, duration) {
+    if (animationType == "fade-in") {
+        UI.animate(window, "opacity", 0, 1, duration);
+    } else if (animationType == "slide-in") {
+        UI.animate(window, "position", {x: -100, y: 0}, {x: 0, y: 0}, duration);
+    } else if (animationType == "zoom") {
+        UI.animate(window, "scale", 0.5, 1, duration);
+    }
+}
+
+// ✅ Theme & Customization Support
+function applyTheme(theme) {
+    UI.setTheme(theme);
+    print("Applying UI theme: " + theme);
+}
+
+// ✅ Adjust UI Responsiveness Based on Device
+function adjustForScreenSize() {
+    screenSize = Hardware.getScreenSize();
+
+    if (screenSize.width < 1280) {
+        print("Switching to compact UI mode...");
+        UI.setMode("compact");
+    } else {
+        UI.setMode("standard");
+    }
+}
+
+// ✅ Enable Touchscreen & Gesture Support
+function enableGestureSupport() {
+    print("Enabling touch and gesture controls...");
+    Gesture.enable("swipe", "tap", "pinch", "rotate");
+}
+
+// ✅ Floating UI Panel Support
+function createFloatingPanel(title, width, height, position) {
+    panel = Window.create(title, width, height);
+    panel.setFloating(true);
+    panel.setPosition(position.x, position.y);
+    panel.show();
+    return panel;
+}
+
+// ✅ AI-Driven UI Adaptation
+function optimizeUI() {
+    usageStats = System.getUsageStats();
+
+    if (usageStats.cpu > 85) {
+        print("Optimizing UI performance...");
+        UI.reduceEffects();
+        UI.setAnimationSpeed("fast");
+    } else {
+        UI.setAnimationSpeed("normal");
+    }
+}
+
+// ✅ Run Nova OS UI System
+initializeUI();
+adjustForScreenSize();
